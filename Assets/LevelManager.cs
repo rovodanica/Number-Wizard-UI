@@ -3,13 +3,13 @@ using System.Collections;
 
 public class LevelManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	public void LoadLevel(string name){
+	Debug.Log("Level load requested for:" + name);
+	Application.LoadLevel(name);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public void QuitGame(string name){
+	Debug.Log("Requested:" + name);
+	Application.Quit();
 	}
 }
