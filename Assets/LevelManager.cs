@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour {
 	}
 	
 	public void QuitGame(string name){
-	Debug.Log("Requested:" + name);
+	Debug.Log("Quit request");
 	Application.Quit();
 	}
 }
