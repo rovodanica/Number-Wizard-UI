@@ -4,17 +4,19 @@ using System.Collections;
 
 public class NumberWizard : MonoBehaviour {
 	public Text question;
+	public Text guesses;
 	int guess;
 	int max;
 	int min;
-	public int maxGuesses = 7;
+	public int maxGuesses = 10;
 	
 	void Start () {
 	StartGame();
 		min = 1;
 		max = 1000;
-		guess = 500;
-		question.text = "Is your number higher or lower than " + guess.ToString() + "?";
+		guess = Random.Range (min,max+1);
+		question.text = "Is this your number?  " + guess.ToString();
+		guesses.text = "Number of guesses left: " + maxGuesses.ToString();
 		max += 1;
 	}
 	
@@ -35,10 +37,11 @@ public class NumberWizard : MonoBehaviour {
 	}
 	
 	public void NextGuess(){
-		guess = (max+min) / 2;
-		question.text = "Is your number higher or lower than " + guess.ToString() + "?";
+		guess = Random.Range(min,max+1);
+		question.text = "Is this your number?  " + guess.ToString();
 		maxGuesses--;
-		if(maxGuesses <= 0) {
+		guesses.text = "Number of guesses left: " + maxGuesses.ToString();
+		if(maxGuesses < 0) {
 		Application.LoadLevel("Lose");
 		}
 	}
