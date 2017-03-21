@@ -9,21 +9,20 @@ public class NumberWizard : MonoBehaviour {
 	int max;
 	int min;
 	public int maxGuesses = 10;
+	public Text szam;
 	
 	void Start () {
 	StartGame();
-		min = 1;
-		max = 1000;
-		guess = Random.Range (min,max+1);
-		question.text = "Is this your number?  " + guess.ToString();
-		guesses.text = "Number of guesses left: " + maxGuesses.ToString();
-		max += 1;
 	}
 	
 	void StartGame(){
 	min = 1;
 	max = 1000;
-	guess = 500;
+	guess = Random.Range (min,max+1);
+	szam.text = guess.ToString ();
+	question.text = "Is this your number?";
+	guesses.text = "Number of guesses left: " + maxGuesses.ToString();
+	max += 1;
 	}
 	
 	public void Higher(){
@@ -38,7 +37,7 @@ public class NumberWizard : MonoBehaviour {
 	
 	public void NextGuess(){
 		guess = Random.Range(min,max+1);
-		question.text = "Is this your number?  " + guess.ToString();
+		szam.text = guess.ToString();
 		maxGuesses--;
 		guesses.text = "Number of guesses left: " + maxGuesses.ToString();
 		if(maxGuesses < 0) {
